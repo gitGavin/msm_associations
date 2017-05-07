@@ -3,7 +3,7 @@ class Movie < ApplicationRecord
   validates_uniqueness_of :title, :scope => [:title, :year]
   validates :title, uniqueness: true
   validates :year, numericality: { greater_than_or_equal_to: 1870, less_than_or_equal_to: 2050 }
-  validates :duration, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 2764800 }
+  validates :duration, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 2764800 }, :allow_nil => true
 
   has_many :characters
   has_many :actors, :through => :characters
